@@ -40,7 +40,7 @@ def check_balance(account_id: str):
     else:
         logger.info(f"Balance for {account_id}: {balance}.")
 
-@flow(flow_run_name="bank-app", retries=3, retry_delay_seconds=20, timeout_seconds=40)
+@flow(retries=3, retry_delay_seconds=20, timeout_seconds=40)
 def banking_flow():
     create_account("12345", 100.0)
     deposit("12345", 50.0)
