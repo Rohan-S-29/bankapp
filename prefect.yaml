@@ -17,7 +17,7 @@ deployments:
   version: "1.0"
   tags: ["banking"]
   description: "A simple banking flow"
-  entrypoint: bankapp.py:banking_flow
+  entrypoint: bankapp.py:banking-flow
   parameters: {}
   schedule:
     - cron: "*/5 * * * *"
