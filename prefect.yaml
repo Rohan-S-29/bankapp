@@ -5,9 +5,7 @@ build: null
 
 push: null
 
-pull:
-  - prefect.deployments.steps.set_working_directory:
-      directory: /home/mt24056/Documents/prefect/bankapp
+pull: null
 
 deployments:
 - name: banking-deployment
