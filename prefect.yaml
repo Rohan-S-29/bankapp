@@ -1,0 +1,35 @@
+name: bankapp
+prefect-version: 3.2.2
+
+build:
+- prefect.deployments.steps.build_docker_image:
+    image_name: bankapp
+    tag: latest
+
+push:
+- prefect.deployments.steps.push_git_repository:
+    repository: https://github.com/Rohan-S-29/bankapp.git
+    branch: main
+
+pull:
+- prefect.deployments.steps.clone_git_repository:
+    repository: https://github.com/Rohan-S-29/bankapp.git
+    branch: main
+
+deployments:
+- name: banking-deployment
+  version: "1.0"
+  tags: ["banking"]
+  description: "A simple banking flow"
+  entrypoint: bankapp.py:banking_flow
+  parameters: {}
+  schedule:
+    - cron: "*/5 * * * *"
+      timezone: "Asia/Kolkata"
+      active: true
+  work_pool:
+    name: Docker-pool
+    type: docker
+    job_variables:
+      image: bankapp:latest
+      auto_remove: false
