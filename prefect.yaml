@@ -1,10 +1,7 @@
 name: bankapp
 prefect-version: 3.2.2
 
-build:
-- prefect.deployments.steps.build_docker_image:
-    image_name: bankapp
-    tag: latest
+build: null
 
 push:
 - prefect.deployments.steps.push_git_repository:
@@ -28,8 +25,6 @@ deployments:
       timezone: "Asia/Kolkata"
       active: true
   work_pool:
-    name: Docker-pool
-    type: docker
-    job_variables:
-      image: bankapp:latest
-      auto_remove: false
+    name: default-use
+    type: Prefect Managed
+    job_variables: {}
