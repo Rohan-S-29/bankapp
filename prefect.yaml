@@ -6,8 +6,11 @@ build: null
 push: null
 
 pull:
-- prefect.deployments.steps.clone_git_repository:
-    repository: "https://github.com/Rohan-S-29/bankapp.git"
+  - prefect.deployments.steps.git_clone:
+      repository: "https://github.com/Rohan-S-29/bankapp.git"
+      branch: "main"
+      access_token: null  # Not needed for public repos
+      directory: "/home/mt24056/Documents/prefect/bankapp"
 
 deployments:
 - name: banking-deployment
