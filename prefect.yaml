@@ -5,10 +5,7 @@ build: null
 
 push: null
 
-pull:
-- prefect.deployments.steps.clone_git_repository:
-    repository: https://github.com/Rohan-S-29/bankapp.git
-    branch: main
+pull: null
 
 deployments:
 - name: banking-deployment
