@@ -3,10 +3,7 @@ prefect-version: 3.2.2
 
 build: null
 
-push:
-- prefect.deployments.steps.push_git_repository:
-    repository: https://github.com/Rohan-S-29/bankapp.git
-    branch: main
+push: null
 
 pull:
 - prefect.deployments.steps.clone_git_repository:
